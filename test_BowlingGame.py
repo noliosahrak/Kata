@@ -26,6 +26,15 @@ class TestBowlingGame:
         self.roll(17, 0)
         assert_that(self.the_game.get_score()).is_equal_to(18)
 
+    def test_should_score_strike(self, game):
+        self.roll1([10, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        assert_that(self.the_game.get_score()).is_equal_to(26)
+
     def roll(self, throws, pins):
         for i in range(0, throws):
             self.the_game.roll(pins)
+
+    def roll1(self, list_of_pins):
+        for pin in list_of_pins:
+            self.the_game.roll(pin)
+        pass
